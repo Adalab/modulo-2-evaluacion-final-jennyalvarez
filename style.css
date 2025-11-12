@@ -1,0 +1,79 @@
+/* CONTENEDOR DE PRODUCTOS */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/* CADA TARJETA DE PRODUCTO */
+.product {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column; /* elementos apilados verticalmente */
+  justify-content: space-between; /* espacio entre elementos */
+  min-height: 380px; /* altura uniforme de todas las tarjetas */
+}
+
+/* IMAGEN DEL PRODUCTO */
+.product__img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+/* CONTENDOR DE TÍTULO Y PRECIO */
+.product__info {
+  flex-grow: 1; /* ocupa espacio disponible para empujar el botón abajo */
+}
+
+/* NOMBRE DEL PRODUCTO */
+.product__name {
+  margin: 0.5rem 0;
+}
+
+/* PRECIO DEL PRODUCTO */
+.product__price {
+  color: #28a745;
+  margin-bottom: 0.5rem;
+}
+
+/* BOTÓN DE AÑADIR/ELIMINAR */
+.product__button {
+  padding: 0.5rem 1rem;
+  background-color: #ffc107;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.product__button:hover {
+  background-color: #e0a800;
+}
+
+/* QUITAR LOS PUNTITOS DE LA LISTA DEL CARRITO */
+.cart ul,
+.cart #cartItems {
+  list-style: none; /* quita los puntos */
+  padding: 0;
+  margin: 0;
+}
+
+.cart li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart li:last-child {
+  border-bottom: none;
+}

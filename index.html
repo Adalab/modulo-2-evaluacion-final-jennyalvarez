@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIENDA ONLINE</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header_title">MI TIENDA ONLINE</h1>
+    </header>
+
+    <main class="main">
+      <!-- BUSCADOR -->
+      <section class="search">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Buscar productos..."
+          class="search__input"
+        />
+        <button id="searchButton" class="search__button">BUSCAR</button>
+      </section>
+
+      <!-- CONTENEDOR GENERAL-->
+
+      <section class="content">
+        <!-- CARRITO -->
+
+        <section class="cart" id="cartList">
+          <h2><i class="fa-solid fa-cart-plus"></i> Carrito</h2>
+          <ul id="cartItems"></ul>
+        </section>
+
+        <!-- LISTADO DE PRODUCTOS -->
+
+        <section class="products" id="productList"></section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
