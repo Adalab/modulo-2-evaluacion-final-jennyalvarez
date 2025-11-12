@@ -10,8 +10,6 @@ Este repositorio contiene una aplicación web estática mínima formada por:
 - `style.css` — Estilos CSS.
 - `app.js` — Lógica JavaScript (si se necesita).
 
-El objetivo es servir como ejercicio de evaluación o punto de partida para pequeños proyectos front-end.
-
 ## Estructura del proyecto
 
 ```

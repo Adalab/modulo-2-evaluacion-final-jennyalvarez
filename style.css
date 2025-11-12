@@ -13,9 +13,9 @@
   padding: 1rem;
 
   display: flex;
-  flex-direction: column; /* elementos apilados verticalmente */
-  justify-content: space-between; /* espacio entre elementos */
-  min-height: 380px; /* altura uniforme de todas las tarjetas */
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
 }
 
 /* IMAGEN DEL PRODUCTO */
@@ -29,7 +29,7 @@
 
 /* CONTENDOR DE TÍTULO Y PRECIO */
 .product__info {
-  flex-grow: 1; /* ocupa espacio disponible para empujar el botón abajo */
+  flex-grow: 1;
 }
 
 /* NOMBRE DEL PRODUCTO */
@@ -60,7 +60,7 @@
 /* QUITAR LOS PUNTITOS DE LA LISTA DEL CARRITO */
 .cart ul,
 .cart #cartItems {
-  list-style: none; /* quita los puntos */
+  list-style: none;
   padding: 0;
   margin: 0;
 }
