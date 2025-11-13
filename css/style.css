@@ -135,12 +135,14 @@ footer {
   .cart__name {
     font-size: 0.95rem;
     margin-bottom: 0.2rem;
+    padding-left: 5px;
   }
 
   .cart__price {
     font-size: 0.85rem;
-    color: green;
+    color: white;
     font-weight: bold;
+    padding-left: 5px;
   }
 
   .cart__remove {
