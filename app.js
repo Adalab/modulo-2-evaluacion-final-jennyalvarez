@@ -238,9 +238,34 @@ function displayCart() {
 
   cart.forEach(item => {
     const li = document.createElement("li");
-    li.textContent = `${item.title || item.name} - ${item.price.toFixed(2)} €`;
+    li.classList.add('cart__item');
+
+    const imageSrc = item.image || item.imageUrl || PLACEHOLDER_IMG;
+    const price = item.price ? item.price.toFixed(2) : "0.00";
+
+    li.innerHTML = `
+      <img src="${imageSrc}" alt="${(item.title || item.name) || ''}" class="cart__img" />
+      <div class="cart__info">
+        <span class="cart__name">${item.title || item.name}</span>
+        <span class="cart__price">${price} €</span>
+      </div>
+      <button class="cart__remove" data-id="${item.id}">Eliminar</button>
+    `;
+
     cartItems.appendChild(li);
   });
+}
+
+
+// ELIMINAR ELEMENTO DEL CARRITO (usado por delegación en cartItems)
+function removeFromCart(id) {
+  const index = cart.findIndex(item => item.id === id);
+  if (index === -1) return;
+  cart.splice(index, 1);
+  saveCartToLocalStorage();
+  // actualizar UI
+  displayProducts(products);
+  displayCart();
 }
 
 
