@@ -1,20 +1,29 @@
-# Ejercicio Evaluación
+# MI TIENDA ONLINE
 
-Proyecto simple para evaluación que contiene una pequeña página web estática.
+Proyecto de evaluación final del Módulo 2 - Tienda online con carrito de compras.
 
-## Descripción
+## DESCRIPCION BREVE DE LA PÁGINA
 
-Este repositorio contiene una aplicación web estática mínima formada por:
+Aplicación web de tienda online que permite:
 
-- `index.html` — Documento HTML principal.
-- `style.css` — Estilos CSS.
-- `app.js` — Lógica JavaScript (si se necesita).
+- Buscar productos
+- Añadir/Eliminar productos al carrito
+- Visualizar el carrito de compras
 
-## Estructura del proyecto
+## TECNOLOGÍAS UTILIZADAS
 
-```
-/Users/admin/Desktop/EJERCICIO EVALUACION
-├─ index.html
-├─ style.css
-└─ app.js
-```
+- HTML5
+- CSS
+- JavaScript
+- Font Awesome
+
+## ESTRUCTURA DEL PROYECTO
+
+modulo-2-evaluacion-final-jennyalvarez/
+├── index.html
+├── css/
+│ └── style.css
+├── js/
+│ └── main.js
+├── images/
+└── README.md

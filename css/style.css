@@ -84,7 +84,7 @@ footer {
 
 /* PRECIO DEL PRODUCTO */
 .product__price {
-  color: orange;
+  color: red;
   font-weight: bold;
 }
 
@@ -141,15 +141,17 @@ footer {
 
   .cart__price {
     font-size: 0.85rem;
-    color: #28a745;
+    color: green;
+    font-weight: bold;
   }
 
   .cart__remove {
-    background: transparent;
+    background: red;
     border: 1px solid #ddd;
     padding: 0.35rem 0.5rem;
     border-radius: 4px;
     cursor: pointer;
+    color: white;
   }
   align-items: center;
 }
@@ -161,6 +163,9 @@ footer {
   background-color: red;
   color: #fff;
 }
+
+/* PIE DE PÁGINA */
+
 .footer {
   background: blue;
   color: white;

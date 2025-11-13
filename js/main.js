@@ -12,17 +12,18 @@ const searchButton = document.getElementById("searchButton");
 const productList = document.getElementById("productList");
 const cartItems = document.getElementById("cartItems");
 
-/* getElementById es un método DOM que se usa para seleccionar un elemento HTML por su ID. */
+/* getElementById método DOM que se usa para seleccionar un elemento HTML por su ID. */
 
-/* searchInput → el campo de texto donde el escribimos la búsqueda.
+/* searchInput → campo de texto donde escribimos la búsqueda.
 
-searchButton → el botón de “Buscar”.
+searchButton → botón de “Buscar”.
 
-productList → el contenedor donde mostraremos las tarjetas de productos.
+productList → contenedor donde mostraremos las tarjetas de productos.
 
-cartItems → el <ul> dentro del carrito, donde listamos los productos añadidos. */
+cartItems → <ul> dentro del carrito, donde listamos los productos añadidos. */
 
-// DELEGACIÓN DE BOTONES "ELIMINAR" DENTRO DEL CARRITO
+
+// BOTONES "ELIMINAR" DENTRO DEL CARRITO
 cartItems.addEventListener('click', (e) => {
   const btn = e.target.closest('.cart__remove');
   if (!btn) return;
@@ -30,20 +31,16 @@ cartItems.addEventListener('click', (e) => {
   removeFromCart(id);
 });
 
-
 let products = [];
 let cart = [];
 
 
-/* products: almacenará la lista completa de productos descargados desde la API.
+/* products:  lista completa de productos descargados desde la API.
 
-cart:  donde guardamos los productos que el usuario añade al carrito. */
-
-
+cart: lista de productos añadidos al carrito. */
 
 
-
-// RECUPERAR CARRITO 
+// LOCAL STORAGE
 
 function loadCartFromLocalStorage() {
   const storedCart = localStorage.getItem("cart");
@@ -54,7 +51,7 @@ function loadCartFromLocalStorage() {
 }
 
 
-/* Busca en localStorage un valor guardado con la clave "cart".
+/* Busca en localStorage el valor "cart".
 
 Si existe, lo convierte de texto a array usando JSON.parse().
 
@@ -71,7 +68,7 @@ function saveCartToLocalStorage() {
 
 /* Convierte el array cart en texto JSON (JSON.stringify(cart)).
 
-Lo guarda en localStorage con la clave "cart". */
+Lo guarda en localStorage como "cart". */
 
 
 
@@ -96,9 +93,9 @@ async function fetchProducts() {
   }
 }
 
-/* Usa fetch() para pedir los productos a la API 1.
+/* Usa fetch() para pedir los productos a la API.
 
-    Si todo va bien:
+    Si funciona:
 
 Convierte la respuesta a JSON.
 
@@ -106,19 +103,13 @@ Guarda los datos en products.
 
 Muestra los productos llamando a displayProducts(products).
 
-Si falla (por ejemplo, la API no responde):
+Si falla la API 1:
 
 Muestra un aviso en consola.
 
-Intenta de nuevo con la API 2 (la copia local en GitHub).
+Intenta de nuevo con la API 2,
 
-Si también falla la API 2, muestra un error.
-
-Es una función async porque usa await (operaciones asíncronas).*/ 
-
-
-
-
+Si también falla la API 2, muestra un error. */
 
 // MOSTRAR PRODUCTOS EN PANTALLA
 
@@ -146,7 +137,7 @@ function displayProducts(list) {
     productList.appendChild(card);
   });
 
-  // ESCUCHAR CLIC EN BOTONES
+  // ESCUCHAR CLIC EN BOTON
 
   document.querySelectorAll(".product__button").forEach(btn => {
     btn.addEventListener("click", toggleCart);
@@ -167,17 +158,15 @@ Usa el título del producto.
 
 Comprueba si ya está en el carrito (cart.some(...)).
 
-Crea dinámicamente una tarjeta HTML con:
+Crea una tarjeta con:
 
 Imagen, nombre, precio.
 
-Botón que dice “Añadir al carrito” o “Eliminar” según el estado.
+Botón “Añadir al carrito” o “Eliminar” 
 
 Añade la tarjeta al productList.
 
-Finalmente, asigna un evento de clic a cada botón para ejecutar toggleCart().
-
-Es la función responsable de “pintar” todo en pantalla. */
+Asigna un evento de clic a cada botón para ejecutar toggleCart(). */
 
 
 
@@ -208,23 +197,21 @@ function toggleCart(event) {
 
 Lee el data-id del botón (el id del producto).
 
-Busca ese producto en el array products.
+Busca ese producto en products.
 
 Comprueba si ya está en el carrito:
 
-Si no está, lo añade (cart.push(product)).
+  Si no está, lo añade (cart.push(product)).
 
-Si ya está, lo elimina (cart.splice()).
+  Si ya está, lo elimina (cart.splice()).
 
 Guarda el carrito actualizado en localStorage.
 
 Llama a:
 
-displayProducts() → para actualizar el estado de los botones.
+  displayProducts() → para actualizar el estado de los botones.
 
-displayCart() → para actualizar la lista lateral del carrito. */
-
-
+  displayCart() → para actualizar la lista lateral del carrito. */
 
 
 
@@ -256,6 +243,24 @@ function displayCart() {
   });
 }
 
+/* 
+
+Limpia el contenedor cartItems (lo deja vacío).
+
+Si el carrito está vacío (cart.length === 0):
+   Muestra mensaje "El carrito está vacío".
+   Sale de la función con return.
+
+Si hay productos en el carrito:
+   Recorre cada producto (cart.forEach).
+   Crea un elemento <li> con clase cart__item.
+   Prepara la imagen (usa item.image, item.imageUrl o imagen placeholder).
+   Formatea el precio a 2 decimales.
+   Construye el HTML con: imagen, nombre, precio y botón "Eliminar".
+   Añade el <li> al DOM (cartItems.appendChild).
+
+ El carrito lateral se actualiza mostrando todos los productos añadidos. */
+
 
 // ELIMINAR ELEMENTO DEL CARRITO (usado por delegación en cartItems)
 function removeFromCart(id) {
@@ -274,11 +279,11 @@ function removeFromCart(id) {
 
 Si el carrito está vacío, muestra el texto “El carrito está vacío”.
 
-Si hay productos, los recorre y crea un <li> por cada uno, con su nombre y precio.
+Si hay productos, crea un <li> por cada uno, con su nombre y precio.
 
-Los añade al <ul> del carrito.
+Los añade al <ul> del carrito.*/
 
-Así, el usuario ve su carrito actualizado en todo momento. */
+
 
 //  BUSCAR PRODUCTOS
 
@@ -298,6 +303,8 @@ Usa filter() para quedarse solo con los productos cuyo nombre incluya ese texto.
 
 Muestra esos productos en pantalla con displayProducts(filtered). */
 
+
+
 // ASIGNAR EVENTO AL BOTÓN DE BÚSQUEDA
 searchButton.addEventListener("click", searchProducts);
 
@@ -308,11 +315,9 @@ Cuando se pulsa, ejecuta searchProducts(). */
 
 // INICIAR LA APLICACIÓN
 
-loadCartFromLocalStorage(); // ← Recuperar carrito guardado
-fetchProducts(); // ← Cargar los productos desde la API
+loadCartFromLocalStorage(); 
+fetchProducts(); 
 
 /* Primero carga el carrito que pudiera haber quedado guardado en el navegador.
 
-Luego descarga los productos desde la API y los muestra en pantalla.
-
-Estas dos funciones se ejecutan automáticamente al abrir la página. */
+Luego descarga los productos desde la API y los muestra en pantalla. */
