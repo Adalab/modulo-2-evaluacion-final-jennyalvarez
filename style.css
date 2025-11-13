@@ -10,8 +10,7 @@
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -24,7 +23,6 @@
   height: 180px;
   object-fit: contain;
   border-radius: 4px;
-  margin-bottom: 0.5rem;
 }
 
 /* CONTENDOR DE TÍTULO Y PRECIO */
@@ -32,29 +30,20 @@
   flex-grow: 1;
 }
 
-/* NOMBRE DEL PRODUCTO */
-.product__name {
-  margin: 0.5rem 0;
-}
-
 /* PRECIO DEL PRODUCTO */
 .product__price {
-  color: #28a745;
-  margin-bottom: 0.5rem;
+  color: orange;
+  font-weight: bold;
 }
 
 /* BOTÓN DE AÑADIR/ELIMINAR */
 .product__button {
   padding: 0.5rem 1rem;
-  background-color: #ffc107;
+  background-color: blue;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.product__button:hover {
-  background-color: #e0a800;
+  color: white;
 }
 
 /* QUITAR LOS PUNTITOS DE LA LISTA DEL CARRITO */
@@ -67,8 +56,7 @@
 
 .cart li {
   padding: 0.4rem 0;
-  border-bottom: 1px solid #eee;
-  font-size: 0.95rem;
+  font-size: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -76,4 +64,8 @@
 
 .cart li:last-child {
   border-bottom: none;
+}
+.product__button.in-cart {
+  background-color: red;
+  color: #fff;
 }
